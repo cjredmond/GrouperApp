@@ -1,0 +1,71 @@
+{% extends 'member_base.html' %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-12">
+    {% if request.user.get_alerts %}
+    {% for alert in request.user.get_alerts %}
+
+    <div class="alert-box">
+      <h3>{{ alert.headline }}</h3>
+      <p>{{ alert.text }}</p>
+    </div>
+
+    {% endfor %}
+    {% endif %}
+  </div>
+</div> <!-- end alert row -->
+
+<div class="row">
+  <div class="col-md-3">
+    <h3>Subscriptions</h3>
+
+    <div class="group-search">
+      <span>Enter group code:</span>
+      <form class="" action="/lookup/" method="post">
+        <input type="text" name="code" value="">
+        {% csrf_token %}
+        <input type="submit" name="" value="X">
+      </form>
+    </div>
+
+    {% for e in request.user.userentityrelation_set.all %}
+    <div class="group-box">
+      {{ e.entity.name }}
+    </div>
+    {% endfor %}
+  </div>
+  <div class="col-md-9">
+    <h3 style="text-align:center;">Events</h3>
+    {% for event in request.user.get_events %}
+    <!-- <div class="event-box">
+      <div class="row">
+        <div class="col-md-3">{{ event.entity.name }}</div>
+        <div class="col-md-3">{{ event.name }}</div>
+        <div class="col-md-3">{{ event.location }}</div>
+        <div class="col-md-3">{{ event.time }}</div>
+      </div>
+    </div> -->
+    <div class="event-box">
+      <div class="row">
+        <div class="col-md-3">
+          <span class="event-name">{{ event.name }} at {{ event.location }}</span>
+          <span>{{ event.time }}</span>
+        </div>
+        <div class="col-md-3">
+          {{ event.entity }}
+        </div>
+        <div class="col-md-3">
+          <span>Attendance</span>
+        </div>
+        <div class="col-md-3">
+          <span>RSVP</span>
+        </div>
+      </div>
+    </div>
+
+
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

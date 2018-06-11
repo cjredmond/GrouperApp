@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/test.css' %}">
+  </head>
+  <body>
+    {% include 'snippets/navbars.html' %}
+    {% block content %}
+    {% endblock %}
+
+  </body>
+</html>
