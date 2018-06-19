@@ -5,8 +5,14 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/test.css' %}" media="screen">
   </head>
   <body>
-    
+    {% include 'snippets/navbars.html' %}
+    <div class="container">
+      <h2>{{ object.name  }}</h2>
+      <h5>{{ object.location }}</h5>
+      <p>{{ object.desciption }}</p>
+    </div>
   </body>
 </html>

@@ -1,5 +1,7 @@
 from django.db import models
 from group.models import Entity
+from django.utils import timezone
+from datetime import timedelta
 
 class Event(models.Model):
     name = models.CharField(max_length=100)
@@ -9,3 +11,8 @@ class Event(models.Model):
     description = models.TextField()
     urgent = models.BooleanField(default=False)
     sticky = models.BooleanField(default=False)
+
+    @property
+    def is_expired(self):
+        if self.time < timezone.now() + timedelta(hours=1):
+            return True

@@ -19,8 +19,41 @@ body {
   margin: 5px;
 }
 
-.group-box {
+.groupsearchform {
+  height: 30px;
+}
+
+.searchbtn {
+  height: 35px;
+  margin: 0px;
+  width: 40px;
+  padding: 4px;
+}
+
+.group-search {
+  padding-bottom: 20px;
+  border-right: 2px solid darkblue;
+}
+
+.search-sub-divider{
+  height: 2px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: darkblue;
+}
+
+.group-box a {
   color: darkblue;
+}
+
+.group-box a:hover {
+  text-decoration: none;
+  color: blue;
+}
+
+.subscriptions-box {
+  padding-top: 20px;
+  border-right: 2px solid darkblue;
 }
 
 .event-box {

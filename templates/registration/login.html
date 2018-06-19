@@ -1,14 +1,20 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/loginpage.css' %}" media="screen">
   </head>
   <body>
-    <form class="" action="" method="post">
-      {{ form.as_p }}
-      {% csrf_token %}
-      <input type="submit" name="" value="Submit">
-    </form>
+    <div class="formblock">
+      <form class="" action="" method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <input type="submit" name="" value="Submit">
+      </form>
+    </div>
+
   </body>
 </html>

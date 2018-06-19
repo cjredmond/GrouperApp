@@ -1,0 +1,12 @@
+body {
+  background: linear-gradient(to right, #0033cc 0%, #3399ff 80%);
+}
+
+.formblock {
+  background-color: white;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 10%;
+  box-shadow: 0 0 50px;
+}

@@ -18,26 +18,29 @@
 
 <div class="row">
   <div class="col-md-3">
-    <h3>Subscriptions</h3>
-
+    <h3>Search Groups</h3>
     <div class="group-search">
       <span>Enter group code:</span>
       <form class="" action="/lookup/" method="post">
-        <input type="text" name="code" value="">
+        <input class="groupsearchform" type="text" name="code" value="">
         {% csrf_token %}
-        <input type="submit" name="" value="X">
+        <input class="btn btn-primary searchbtn" type="submit" name="" value="GO">
       </form>
     </div>
-
-    {% for e in request.user.userentityrelation_set.all %}
-    <div class="group-box">
-      {{ e.entity.name }}
+    <div class="search-sub-divider"></div>
+    <div class="subscriptions-box">
+      <h3>Subscriptions</h3>
+      {% for e in request.user.userentityrelation_set.all %}
+      <div class="group-box">
+        <a href="{% url 'entity_detail_view' e.entity.id %}">{{ e.entity.name }}</a>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
   <div class="col-md-9">
-    <h3 style="text-align:center;">Events</h3>
+    <h3 style="text-align:center;">Upcoming Events</h3>
     {% for event in request.user.get_events %}
+    {% if not event.is_expired %}
     <!-- <div class="event-box">
       <div class="row">
         <div class="col-md-3">{{ event.entity.name }}</div>
@@ -49,7 +52,7 @@
     <div class="event-box">
       <div class="row">
         <div class="col-md-3">
-          <span class="event-name">{{ event.name }} at {{ event.location }}</span>
+          <span class="event-name">{{ event.name }} at {{ event.location }}</span><br>
           <span>{{ event.time }}</span>
         </div>
         <div class="col-md-3">
@@ -64,7 +67,7 @@
       </div>
     </div>
 
-
+    {% endif %}
     {% endfor %}
   </div>
 </div>
