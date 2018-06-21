@@ -1,20 +1,65 @@
 {% load staticfiles %}
+{% load attr_tags %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.js"
+      integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+      crossorigin="anonymous">
+    </script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">
     <link rel="stylesheet" href="{% static 'css/loginpage.css' %}" media="screen">
   </head>
   <body>
     <div class="formblock">
-      <form class="" action="" method="post">
-        {{ form.as_p }}
+      <img style="max-height:170px;width:100%;" src="media/mountains.jpeg" alt="">
+      <form class="" action="" method="post" autocomplete="off">
+        <p style="text-align:center; font-size:16px;padding-top:10px;">Have an account? Sign in</p>
+        <div class="row login-row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            {{ form.username|htmlattributes:"id:username" }}
+          </div>
+        </div>
+        <div class="row login-row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            {{ form.password|htmlattributes:"id:password" }}
+          </div>
+        </div>
+
+
+        <!-- <div class="row login-row">
+          <div class="col-md-1"></div>
+          <div class="col-md-1" style="background-color:blue;"><span style="font-size:4em;padding-top:10px;" class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
+          <div class="col-md-9" style="background-color:red; padding:0px;"><div class="input-wrapper">
+            {{ form.username|htmlattributes:"id:username" }}
+          </div></div>
+        </div>
+
+        <div class="row login-row" style="">
+          <div class="col-md-1"></div>
+          <div class="col-md-1"><span style="font-size:4em;padding-top:6px;" class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
+          <div class="col-md-9"><div class="input-wrapper">
+            {{ form.password|htmlattributes:"id:password" }}
+          </div></div>
+        </div> -->
+
         {% csrf_token %}
         <input type="submit" name="" value="Submit">
       </form>
     </div>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+        $('#username').attr('placeholder', 'Email Address');
+        $('#password').attr('placeholder', 'Password');
+      })
+    </script>
 
   </body>
 </html>

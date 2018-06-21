@@ -112,3 +112,8 @@ AUTH_USER_MODEL = 'user_auth.User'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join('static'),)
 LOGIN_REDIRECT_URL = '/passthru/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+AUTHENTICATION_BACKENDS = ['user_auth.auth_login.EmailBackend']

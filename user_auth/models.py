@@ -8,6 +8,9 @@ USER_LEVELS = [('s', 'super'), ('l', 'leader'), ('m', 'member')]
 class User(AbstractUser):
     level = models.CharField(max_length=1,choices=USER_LEVELS)
 
+    class Meta(object):
+        unique_together = ('email',)
+
     def __str__(self):
         return self.username
 
