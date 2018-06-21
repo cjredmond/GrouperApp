@@ -16,9 +16,9 @@
   </head>
   <body>
     <div class="formblock">
-      <img style="max-height:170px;width:100%;" src="media/mountains.jpeg" alt="">
+      <img style="max-height:170px;width:100%;border-bottom:1px solid black;" src="media/nmountains.jpg" alt="">
       <form class="" action="" method="post" autocomplete="off">
-        <p style="text-align:center; font-size:16px;padding-top:10px;">Have an account? Sign in</p>
+        <p style="text-align:center; font-size:18px;padding-top:10px;">Have an account? Sign in</p>
         <div class="row login-row">
           <div class="col-md-1"></div>
           <div class="col-md-10">
@@ -31,26 +31,16 @@
             {{ form.password|htmlattributes:"id:password" }}
           </div>
         </div>
-
-
-        <!-- <div class="row login-row">
-          <div class="col-md-1"></div>
-          <div class="col-md-1" style="background-color:blue;"><span style="font-size:4em;padding-top:10px;" class="glyphicon glyphicon-envelope" aria-hidden="true"></span></div>
-          <div class="col-md-9" style="background-color:red; padding:0px;"><div class="input-wrapper">
-            {{ form.username|htmlattributes:"id:username" }}
-          </div></div>
-        </div>
-
-        <div class="row login-row" style="">
-          <div class="col-md-1"></div>
-          <div class="col-md-1"><span style="font-size:4em;padding-top:6px;" class="glyphicon glyphicon-lock" aria-hidden="true"></span></div>
-          <div class="col-md-9"><div class="input-wrapper">
-            {{ form.password|htmlattributes:"id:password" }}
-          </div></div>
-        </div> -->
 
         {% csrf_token %}
-        <input type="submit" name="" value="Submit">
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <input id='loginSubmit' class="btn" type="submit" name="" value="Submit">
+          </div>
+
+        </div>
+
       </form>
     </div>
 

@@ -1,0 +1,43 @@
+body {
+  background: linear-gradient(to right, #0033cc 0%, #3399ff 80%);
+}
+
+.formblock {
+  background-color: white;
+  width: 40%;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-top: 10%;
+  box-shadow: 0 0 50px;
+  height: 420px;
+}
+
+.input-wrapper {
+  margin: 10px;
+}
+
+.login-row input {
+  color: #3399ff;
+  width: 100%;
+  height: 40px;
+  font-size: 18px;
+
+}
+
+.login-row {
+  padding-top: 20px;
+}
+
+
+
+input:-webkit-autofill {
+  -webkit-box-shadow: inset 0 0 0px 9999px white;
+}
+
+#loginSubmit {
+  background-color: #3399ff;
+  width: 100%;
+  margin-top: 20px;
+  font-size: 18px;
+  color: white;
+}
