@@ -13,6 +13,15 @@ User = get_user_model()
 class UserCreateView(CreateView):
     model = User
     form_class = MyUserCreateForm
+    def form_valid(self,form,**kwargs):
+        instance = form.save(commit=False)
+        print(self.kwargs['pk'])
+        if self.kwargs['pk'] == '1':
+            instance.level = 'm'
+        else:
+            instance.level = 'l'
+        instance.username = instance.email
+        return super().form_valid(form)
     def get_success_url(self):
         return reverse('login')
 
@@ -29,6 +38,6 @@ class LandingView(TemplateView):
             return 'landing_member.html'
         else:
             return 'landing_leader.html'
-    
+
 # x = User.objects.get(username='firstuser')
 # print(x.get_alerts)
