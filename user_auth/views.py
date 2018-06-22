@@ -3,11 +3,11 @@ from django.views.generic import *
 from django.views.generic.edit import *
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
-from .forms import MyUserCreateForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from .forms import MyUserCreateForm
 
-from group.models import Entity
+# from group.models import Entity
 
 User = get_user_model()
 class UserCreateView(CreateView):
