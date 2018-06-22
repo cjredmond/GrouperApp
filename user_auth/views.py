@@ -39,5 +39,8 @@ class LandingView(TemplateView):
         else:
             return 'landing_leader.html'
 
+class RegisterChoiceView(TemplateView):
+    template_name = 'register_choice_view.html'
+
 # x = User.objects.get(username='firstuser')
 # print(x.get_alerts)

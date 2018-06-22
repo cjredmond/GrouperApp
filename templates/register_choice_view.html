@@ -1,0 +1,34 @@
+{% load staticfiles %}
+{% load attr_tags %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/userform.css' %}" media="screen">
+  </head>
+  <body>
+    <div class="formblock">
+      <div style="height:70px;" class="row spacer"></div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <a href="{% url 'user_create_view' '1' %}"> <button id='userCreateLink' class='btn' type="button">Register to join groups</button> </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p style="text-align:center;font-size:30px;padding-top:20px;">OR</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+          <a href="{% url 'user_create_view' '2' %}"> <button id='userCreateLink' class='btn' type="button">Register as group admin</button> </a>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

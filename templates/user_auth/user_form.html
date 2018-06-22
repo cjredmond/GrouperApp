@@ -1,16 +1,63 @@
+{% load staticfiles %}
+{% load attr_tags %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.js"
+      integrity="sha256-fNXJFIlca05BIO2Y5zh1xrShK3ME+/lYZ0j+ChxX2DA="
+      crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" media="screen">
+    <link rel="stylesheet" href="{% static 'css/userform.css' %}" media="screen">
   </head>
   <body>
-    <form class="" action="" method="post">
-      {% csrf_token %}
-      {{ form.email }}
-      {{ form.password1 }}
-      {{ form.password2 }}
-      <input type="submit" name="" value="Submit">
-    </form>
+    <div class="formblock">
+      <img style="max-height:170px;width:100%;border-bottom:1px solid black;" src="media/nmountains.jpg" alt="">
+      <form class="" action="" method="post" autocomplete="off">
+        <p style="text-align:center; font-size:18px;padding-top:10px;">Create An Account</p>
+        <div class="row login-row">
+          <div class="col-md-1"></div>
+          <div class="col-md-3">
+            <span style="padding-top:10px; font-size:24px;">Email:</span>
+          </div>
+          <div class="col-md-7">
+            {{ form.email }}
+          </div>
+        </div>
+        <div class="row login-row">
+          <div class="col-md-1"></div>
+          <div class="col-md-3">
+            <span style="padding-top:10px; font-size:24px;">Password:</span>
+          </div>
+          <div class="col-md-7">
+            {{ form.password1 }}
+          </div>
+        </div>
+        <div class="row login-row">
+          <div class="col-md-1"></div>
+          <div class="col-md-3">
+            <span style="padding-top:10px; font-size:24px;">Password:</span>
+            <span style="padding-top:10px; font-size:12px;">(Confirm)</span>
+          </div>
+          <div class="col-md-7">
+            {{ form.password2 }}
+          </div>
+        </div>
+
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10">
+            <input id='loginSubmit' class="btn" type="submit" name="" value="Submit">
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+
   </body>
 </html>
