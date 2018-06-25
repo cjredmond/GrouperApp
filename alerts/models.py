@@ -6,7 +6,8 @@ class Alert(models.Model):
     entity = models.ForeignKey(Entity,on_delete=models.CASCADE)
     time = models.DateTimeField(auto_now_add=True)
     headline = models.CharField(max_length=100,null=True,blank=True)
-    text = models.TextField()
+    text = models.TextField(null=True,blank=True)
+    hours_active = models.IntegerField(default=0)
     expiration_time = models.DateTimeField()
 
     @property
