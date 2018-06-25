@@ -30,9 +30,12 @@ class User(AbstractUser):
                 ls.append(event)
         return ls
 
+RELATION_TYPES = [('l', 'leader'), ('m', 'member')]
+
 class UserEntityRelation(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     entity = models.ForeignKey(Entity,on_delete=models.CASCADE)
+    relation_type = models.CharField(max_length=1,choices=RELATION_TYPES,default='m')
 
     def __str__(self):
         return self.user.username + " " + self.entity.name
