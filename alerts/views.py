@@ -17,7 +17,7 @@ class AlertCreateView(CreateView):
     form_class = AlertCreateForm
     def form_valid(self,form,**kwargs):
         instance = form.save(commit=False)
-        instance.entity = Entity.objects.first()
+        instance.entity = Entity.objects.get(id=int(self.kwargs['group_id']))
         instance.expiration_time = timezone.now() + datetime.timedelta(hours=instance.hours_active)
         return super().form_valid(form)
     def get_success_url(self):

@@ -3,11 +3,23 @@
 {% block content %}
 
 <h3>This is the content</h3>
-<a href="{% url 'alert_create_view' %}">Create Alert</a>
+
 
 {% for e in request.user.userentityrelation_set.all %}
- {{ e.entity.name }}
- <a href="{% url 'entity_update_view' e.entity.id %}">Update</a>
+
+<div class="row">
+  <div class="col-md-3">
+    <a href="{% url 'entity_update_view' e.entity.id %}">Update</a>
+    {{ e.entity.name }}
+  </div>
+  <div class="col-md-4">
+
+    <a href="{% url 'alert_create_view' e.entity.id %}">Create Alert</a>
+  </div>
+</div>
+
+
+
 {% endfor %}
 
 {% endblock %}

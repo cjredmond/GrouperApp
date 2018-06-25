@@ -9,4 +9,13 @@
 </nav>
 
 {% else %}
+
+<nav class="navbar navbar-inverse leader-navbar navbar-custom">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li>Logged in as {{ request.user.username }}</li>
+    </ul>
+  </div>
+</nav>
+
 {% endif %}

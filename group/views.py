@@ -24,3 +24,5 @@ class EntityLookupView(View):
 class EntityUpdateView(UpdateView):
     model = Entity
     fields = ['name', 'description', 'location', 'code']
+    def get_success_url(self):
+        return reverse('landing_view')
