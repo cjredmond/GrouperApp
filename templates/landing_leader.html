@@ -5,4 +5,9 @@
 <h3>This is the content</h3>
 <a href="{% url 'alert_create_view' %}">Create Alert</a>
 
+{% for e in request.user.userentityrelation_set.all %}
+ {{ e.entity.name }}
+ <a href="{% url 'entity_update_view' e.entity.id %}">Update</a>
+{% endfor %}
+
 {% endblock %}

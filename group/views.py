@@ -20,3 +20,7 @@ class EntityLookupView(View):
         except ObjectDoesNotExist:
             return HttpResponseRedirect(reverse('landing_view'))
         return  HttpResponseRedirect(reverse('entity_detail_view', args=[str(target.id)]))
+
+class EntityUpdateView(UpdateView):
+    model = Entity
+    fields = ['name', 'description', 'location', 'code']
