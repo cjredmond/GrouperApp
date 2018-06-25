@@ -8,5 +8,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^', include('user_auth.urls')),
     url(r'^', include('group.urls')),
-    url(r'^', include('alerts.urls'))
+    url(r'^', include('alerts.urls')),
+    url(r'^', include('events.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
