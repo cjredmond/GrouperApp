@@ -5,12 +5,10 @@
     <title></title>
   </head>
   <body>
-    <h3>Forgot password</h3>
-    <form class="" method="post">
-      {% csrf_token %}
+    <form class=""  method="post">
       {{ form.as_p }}
-      <button type="submit">Submit</button>
-
+      {% csrf_token %}
+      <input type="submit" name="" value="Submit">
     </form>
   </body>
 </html>

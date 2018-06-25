@@ -6,10 +6,22 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from .forms import MyUserCreateForm
+from django.conf import settings
+from django.contrib.auth import login
 
 # from group.models import Entity
 
 User = get_user_model()
+
+def create_user_passthru(request):
+    user = User.objects.last()
+    login(request, user, backend=settings.AUTHENTICATION_BACKENDS[0])
+    return HttpResponseRedirect(
+        reverse('landing_view',
+            )
+    )
+
+
 class UserCreateView(CreateView):
     model = User
     form_class = MyUserCreateForm
@@ -23,7 +35,7 @@ class UserCreateView(CreateView):
         instance.username = instance.email
         return super().form_valid(form)
     def get_success_url(self):
-        return reverse('login')
+        return reverse('create_user_passthru')
 
 @login_required
 def passthru(request):
