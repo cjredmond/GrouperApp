@@ -7,6 +7,8 @@ from django.urls import reverse
 from .models import Event
 from .forms import EventCreateForm
 
+from group.models import Entity
+
 class EventCreateView(CreateView):
     model = Event
     form_class = EventCreateForm

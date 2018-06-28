@@ -1,14 +1,44 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <form class=""  method="post">
-      {{ form.as_p }}
-      {% csrf_token %}
-      <input type="submit" name="" value="Submit">
-    </form>
-  </body>
-</html>
+{% extends 'leader_base.html' %}
+
+{% block content %}
+<div class="container">
+
+</div>
+<form class=""  method="post">
+  <div class="row eventrow">
+    <div class="col-md-2">
+      <span>Alert Headline:</span>
+    </div>
+    <div class="col-md-6">
+      {{ form.headline }}
+    </div>
+  </div>
+
+  <div class="row eventrow">
+    <div class="col-md-2">
+      <span>Alert Details:</span>
+    </div>
+    <div class="col-md-6">
+      {{ form.text }}
+    </div>
+  </div>
+
+  <div class="row eventrow">
+    <div class="col-md-2">
+      <span>Hours Active:</span>
+    </div>
+    <div class="col-md-6">
+      {{ form.hours_active }}
+    </div>
+  </div>
+
+  <div class="row eventrow">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+      <input type="submit" id="eventSubmit" value="Submit">
+    </div>
+  </div>
+  {% csrf_token %}
+
+</form>
+{% endblock %}
