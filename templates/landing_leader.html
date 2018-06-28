@@ -23,7 +23,7 @@
     {{ e.entity.name }}
   </div>
   <div class="col-md-4">
-    <a href="{% url 'event_create_view' e.entity.id %}">Create Event</a>
+    <a href="{% url 'event_create_view' e.entity.slug %}">Create Event</a>
     <a href="{% url 'alert_create_view' e.entity.slug %}">Create Alert</a>
   </div>
 </div>

@@ -6,7 +6,7 @@ class Entity(models.Model):
     description = models.CharField(max_length=200)
     location = models.CharField(max_length=60)
     code = models.CharField(max_length=12,unique=True)
-    slug = models.SlugField(max_length=100)
+    slug = models.SlugField(max_length=100,unique=True)
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
