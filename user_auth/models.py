@@ -19,7 +19,7 @@ class User(AbstractUser):
         ls = []
         for rel in self.userentityrelation_set.all():
             for alert in rel.entity.alert_set.all():
-                if alert.is_expired == False:
+                if alert.is_expired != True:
                     ls.append(alert)
         return ls
 

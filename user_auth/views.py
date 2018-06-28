@@ -5,11 +5,13 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.http import HttpResponseRedirect
-from .forms import MyUserCreateForm
 from django.conf import settings
 from django.contrib.auth import login
+from .forms import MyUserCreateForm
 
-# from group.models import Entity
+from group.models import Entity
+from alerts.models import Alert
+from .models import UserEntityRelation
 
 User = get_user_model()
 
@@ -54,5 +56,4 @@ class LandingView(TemplateView):
 class RegisterChoiceView(TemplateView):
     template_name = 'register_choice_view.html'
 
-# x = User.objects.get(username='firstuser')
-# print(x.get_alerts)
+# x = User.objects.get(email='connor.redmond+manager@gmail.com')
