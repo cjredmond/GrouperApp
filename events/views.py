@@ -14,7 +14,7 @@ class EventCreateView(CreateView):
     form_class = EventCreateForm
     def form_valid(self,form,**kwargs):
         instance = form.save(commit=False)
-        instance.entity = Entity.objects.get(id=int(self.kwargs['group_id']))
+        instance.entity = Entity.objects.get(slug=self.kwargs['slug'])
         return super().form_valid(form)
     def get_success_url(self):
         return reverse('landing_view')
