@@ -1,9 +1,53 @@
 {% extends 'leader_base.html' %}
 
 {% block content %}
+<div class="container">
+
+</div>
 <form class=""  method="post">
-  {{ form.time }}
+  <div class="row eventrow">
+    <div class="col-md-2">
+      <span>Event Name:</span>
+    </div>
+    <div class="col-md-6">
+      {{ form.name }}
+    </div>
+  </div>
+
+  <div class="row eventrow">
+    <div class="col-md-2">
+      <span>Event Location:</span>
+    </div>
+    <div class="col-md-6">
+      {{ form.location }}
+    </div>
+  </div>
+
+  <div class="row eventrow">
+    <div class="col-md-2">
+      <span>Event Time:</span>
+    </div>
+    <div class="col-md-6">
+      {{ form.time }}
+    </div>
+  </div>
+
+  <div class="row eventrow">
+    <div class="col-md-2">
+      <span>Event Description:</span>
+    </div>
+    <div class="col-md-6">
+      {{ form.description }}
+    </div>
+  </div>
+
+  <div class="row eventrow">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
+      <input type="submit" id="eventSubmit" value="Submit">
+    </div>
+  </div>
   {% csrf_token %}
-  <input type="submit" name="" value="Submit">
+
 </form>
 {% endblock %}

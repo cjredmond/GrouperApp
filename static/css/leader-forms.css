@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+.eventrow {
+  padding: 10px;
+  font-size: 18px;
+}
+
+body {
+  background-color: #F0F0F0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#eventSubmit {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+}
+
+textarea {
+  width: 100%
+}
