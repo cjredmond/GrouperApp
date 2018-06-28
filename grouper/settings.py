@@ -28,7 +28,8 @@ INSTALLED_APPS = [
     'user_auth',
     'group',
     'alerts',
-    'events'
+    'events',
+    'datetimewidget'
 ]
 
 MIDDLEWARE = [
