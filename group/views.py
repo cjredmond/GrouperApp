@@ -19,7 +19,7 @@ class EntityLookupView(View):
             target = Entity.objects.get(code=code)
         except ObjectDoesNotExist:
             return HttpResponseRedirect(reverse('landing_view'))
-        return  HttpResponseRedirect(reverse('entity_detail_view', args=[str(target.id)]))
+        return  HttpResponseRedirect(reverse('entity_detail_view', args=[str(target.id),target.slug]))
 
 class EntityUpdateView(UpdateView):
     model = Entity

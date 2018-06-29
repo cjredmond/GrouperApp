@@ -32,7 +32,7 @@
       <h3>Subscriptions</h3>
       {% for e in request.user.userentityrelation_set.all %}
       <div class="group-box">
-        <a href="{% url 'entity_detail_view' e.entity.id %}">{{ e.entity.name }}</a>
+        <a href="{% url 'entity_detail_view' e.entity.id e.entity.slug %}">{{ e.entity.name }}</a>
       </div>
       {% endfor %}
     </div>

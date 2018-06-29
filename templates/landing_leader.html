@@ -6,28 +6,48 @@
 
 {% for e in request.user.userentityrelation_set.all %}
 
-<h2>{{ e.entity.name }}</h2>
 
 
-{% if request.user.get_alerts %}
-<h4>Active Alerts</h4>
-{% endif %}
+  <div class="row">
+    <div class="col-md-6">
+      <h2 style="text-align:center;">{{ e.entity.name }}</h2>
+      {% if request.user.get_alerts %}
+        <h4>Active Alerts</h4>
+        {% for alert in request.user.get_alerts %}
+          <span>Alert:</span>{{ alert.headline }} <span>Expiration:</span>{{ alert.expiration_time }}
+        {% endfor %}
+      {% endif %}
 
-{% for alert in request.user.get_alerts %}
-  <span>Alert:</span>{{ alert.headline }} <span>Expiration:</span>{{ alert.expiration_time }}
-{% endfor %}
-
-<div class="row">
-  <div class="col-md-3">
-    <a href="{% url 'entity_update_view' e.entity.id e.entity.slug %}">Update</a>
-    {{ e.entity.name }}
+      <div class="row">
+        <div class="col-md-4">
+          <a href="{% url 'entity_update_view' e.entity.id e.entity.slug %}">Update Info</a>
+        </div>
+        <div class="col-md-4">
+          <a href="{% url 'event_create_view' e.entity.slug %}">Create Event</a>
+        </div>
+        <div class="col-md-4">
+          <a href="{% url 'alert_create_view' e.entity.slug %}">Create Alert</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h3 style="text-align:center;">Upcoming Events</h3>
+      {% for event in e.entity.event_set.all %}
+        {% if not event.is_expired %}
+          <div class="row eventrow">
+            <div class="col-md-6">
+              <span>{{ event.name }}</span><br>
+              <span>{{ event.location }}</span><br>
+              <span>{{ event.time }}</span>
+            </div>
+            <div class="col-md-6">
+              <span>{{ event.description|linebreaks }}</span>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
   </div>
-  <div class="col-md-4">
-    <a href="{% url 'event_create_view' e.entity.slug %}">Create Event</a>
-    <a href="{% url 'alert_create_view' e.entity.slug %}">Create Alert</a>
-  </div>
-</div>
-
 
 
 {% endfor %}

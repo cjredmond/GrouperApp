@@ -16,3 +16,4 @@ class Event(models.Model):
     def is_expired(self):
         if self.time < timezone.now() + timedelta(hours=1):
             return True
+        return False
